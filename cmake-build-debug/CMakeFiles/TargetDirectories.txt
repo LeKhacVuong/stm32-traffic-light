@@ -1,0 +1,15 @@
+/home/lekhacvuong/Desktop/traffic_light/light_slave/cmake-build-debug/CMakeFiles/light_slave.dir
+/home/lekhacvuong/Desktop/traffic_light/light_slave/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/lekhacvuong/Desktop/traffic_light/light_slave/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/lekhacvuong/Desktop/traffic_light/light_slave/cmake-build-debug/utils/CMakeFiles/sdk_utils.dir
+/home/lekhacvuong/Desktop/traffic_light/light_slave/cmake-build-debug/utils/CMakeFiles/edit_cache.dir
+/home/lekhacvuong/Desktop/traffic_light/light_slave/cmake-build-debug/utils/CMakeFiles/rebuild_cache.dir
+/home/lekhacvuong/Desktop/traffic_light/light_slave/cmake-build-debug/common/modbus/mb_slave/CMakeFiles/mb_slave.dir
+/home/lekhacvuong/Desktop/traffic_light/light_slave/cmake-build-debug/common/modbus/mb_slave/CMakeFiles/edit_cache.dir
+/home/lekhacvuong/Desktop/traffic_light/light_slave/cmake-build-debug/common/modbus/mb_slave/CMakeFiles/rebuild_cache.dir
+/home/lekhacvuong/Desktop/traffic_light/light_slave/cmake-build-debug/common/modbus/mb_master/CMakeFiles/mb_master.dir
+/home/lekhacvuong/Desktop/traffic_light/light_slave/cmake-build-debug/common/modbus/mb_master/CMakeFiles/edit_cache.dir
+/home/lekhacvuong/Desktop/traffic_light/light_slave/cmake-build-debug/common/modbus/mb_master/CMakeFiles/rebuild_cache.dir
+/home/lekhacvuong/Desktop/traffic_light/light_slave/cmake-build-debug/libs/nanoModbus/CMakeFiles/nanomodbus.dir
+/home/lekhacvuong/Desktop/traffic_light/light_slave/cmake-build-debug/libs/nanoModbus/CMakeFiles/edit_cache.dir
+/home/lekhacvuong/Desktop/traffic_light/light_slave/cmake-build-debug/libs/nanoModbus/CMakeFiles/rebuild_cache.dir

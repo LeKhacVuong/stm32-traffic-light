@@ -1,0 +1,210 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4
+					],
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.29"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "utils",
+					"jsonFile" : "directory-utils-Debug-ecc62ddb27eede1f7ffa.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "utils",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "common/modbus/mb_slave",
+					"jsonFile" : "directory-common.modbus.mb_slave-Debug-77db754c7908365cf66b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "common/modbus/mb_slave",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "common/modbus/mb_master",
+					"jsonFile" : "directory-common.modbus.mb_master-Debug-75088ad0a763f4b4c543.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 3,
+					"source" : "common/modbus/mb_master",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "libs/nanoModbus",
+					"jsonFile" : "directory-libs.nanoModbus-Debug-10636f65dc13c2b50cd0.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 4,
+					"source" : "libs/nanoModbus",
+					"targetIndexes" : 
+					[
+						3
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "light_slave",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "ev-sdk-utils",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "mb_slave",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "mb_master",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						4
+					],
+					"name" : "lib-nanomodbus",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "light_slave::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-light_slave-Debug-bfecdcb539ff7b5a4e99.json",
+					"name" : "light_slave",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "mb_master::@b12c58d2c8a485810453",
+					"jsonFile" : "target-mb_master-Debug-d48e5e137e8b1f3b9927.json",
+					"name" : "mb_master",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "mb_slave::@1227c1050561054838ba",
+					"jsonFile" : "target-mb_slave-Debug-2292c60e01865afde30b.json",
+					"name" : "mb_slave",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "nanomodbus::@baa76e7140dcce53f676",
+					"jsonFile" : "target-nanomodbus-Debug-1f7369337c61e093af3c.json",
+					"name" : "nanomodbus",
+					"projectIndex" : 4
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "sdk_utils::@c810615cce0f7acb82dc",
+					"jsonFile" : "target-sdk_utils-Debug-48dfaceaa06bcaced952.json",
+					"name" : "sdk_utils",
+					"projectIndex" : 1
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/lekhacvuong/Desktop/traffic_light/light_slave/cmake-build-debug",
+		"source" : "/home/lekhacvuong/Desktop/traffic_light/light_slave"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}
