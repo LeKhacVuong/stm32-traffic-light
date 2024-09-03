@@ -1,5 +1,5 @@
 Core/Src/board.o: ../Core/Src/board.c ../Core/Inc/board.h \
- ../Core/Inc/main.h ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal.h \
+ ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal.h \
  ../Core/Inc/stm32l1xx_hal_conf.h \
  ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_rcc.h \
  ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_def.h \
@@ -22,13 +22,10 @@ Core/Src/board.o: ../Core/Src/board.c ../Core/Inc/board.h \
  ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_flash_ramfunc.h \
  ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_pwr.h \
  ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_pwr_ex.h \
- ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_spi.h \
- ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_tim.h \
- ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_tim_ex.h \
  ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_uart.h \
- ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_exti.h
+ ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_exti.h \
+ /home/lekhacvuong/STM32CubeIDE/workspace_1.14.0/light_slave/Core/utils/sm_elapsed_timer.h
 ../Core/Inc/board.h:
-../Core/Inc/main.h:
 ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal.h:
 ../Core/Inc/stm32l1xx_hal_conf.h:
 ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_rcc.h:
@@ -52,8 +49,6 @@ Core/Src/board.o: ../Core/Src/board.c ../Core/Inc/board.h \
 ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_flash_ramfunc.h:
 ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_pwr.h:
 ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_pwr_ex.h:
-../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_spi.h:
-../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_tim.h:
-../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_tim_ex.h:
 ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_uart.h:
 ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_exti.h:
+/home/lekhacvuong/STM32CubeIDE/workspace_1.14.0/light_slave/Core/utils/sm_elapsed_timer.h:

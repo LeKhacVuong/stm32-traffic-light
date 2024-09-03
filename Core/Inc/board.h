@@ -1,67 +1,36 @@
 /*
  * board.h
  *
- *  Created on: Aug 14, 2024
+ *  Created on: Aug 31, 2024
  *      Author: lekhacvuong
  */
 
 #ifndef INC_BOARD_H_
 #define INC_BOARD_H_
 
-#include "main.h"
-#include "stdio.h"
-#include "stdbool.h"
+#include "stm32l1xx_hal.h"
 
-enum LIGHT{
-    BED_LIGHT,
-    LIVING_LIGHT,
-    KITCHEN_LIGHT,
-    HALLWAY_LIGHT,
-    LIGHT_NUMBER
-};
-
-typedef struct devTime_t{
-    uint8_t m_hour;
-    uint8_t m_min;
-}devTime_t;
-
-typedef struct light_info_t{
-    uint8_t m_stt;
-    uint8_t m_brightness;
-    uint8_t m_auto;
-    devTime_t m_autoConfigStart[3];
-    devTime_t m_autoConfigStop[3];
-}light_info_t;
-
-typedef struct dev_info_t{
-    devTime_t m_devTime;
-
-    uint8_t m_doorStt;
-    uint8_t m_bedFan;
-    uint8_t m_fireSensor;
-    uint8_t m_fireBuzzer;
-    uint8_t m_hallwayDetectHuman;
-
-    uint8_t m_autoFan;
-    devTime_t m_autoFanStart;
-    devTime_t m_autoFanStop;
-
-    light_info_t m_light[LIGHT_NUMBER];
-
-    uint8_t m_isFire;
-
-    char m_doorKey[8];
-
-    uint8_t m_humi;
-    uint8_t m_temp;
-}dev_info_t;
-
-extern SPI_HandleTypeDef hspi2;
-
-extern TIM_HandleTypeDef htim4;
+void Error_Handler(void);
+#define LED_Pin GPIO_PIN_7
+#define LED_GPIO_Port GPIOB
 
 extern UART_HandleTypeDef huart2;
 
+#define QUEUE_SIZE 128
+
+typedef struct{
+	uint8_t m_queue[QUEUE_SIZE];
+	uint16_t m_head;
+	uint16_t m_tail;
+}data_queue_t;
+
+int queue_push(data_queue_t* _queue, uint8_t _data);
+
+int queue_get_byte_available(data_queue_t* _queue);
+
+int queue_get_bytes(data_queue_t* _queue, uint8_t* _buff, uint8_t _len, uint32_t _timeout);
+
+int queue_reset(data_queue_t* _queue);
 
 void board_init();
 

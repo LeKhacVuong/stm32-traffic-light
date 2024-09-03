@@ -1,5 +1,5 @@
-Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/board.h \
- ../Core/Inc/main.h ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal.h \
+Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
+ ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal.h \
  ../Core/Inc/stm32l1xx_hal_conf.h \
  ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_rcc.h \
  ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_def.h \
@@ -22,18 +22,14 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/board.h \
  ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_flash_ramfunc.h \
  ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_pwr.h \
  ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_pwr_ex.h \
- ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_spi.h \
- ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_tim.h \
- ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_tim_ex.h \
  ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_uart.h \
  ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_exti.h \
- /home/lekhacvuong/Desktop/traffic_light/light_slave_stm/Core/User/utils/sm_logger.h \
- /home/lekhacvuong/Desktop/traffic_light/light_slave_stm/Core/User/libs/host/sm_host.h \
- /home/lekhacvuong/Desktop/traffic_light/light_slave_stm/Core/User/libs/host/sm_cmd.h \
- /home/lekhacvuong/Desktop/traffic_light/light_slave_stm/Core/User/utils/sm_elapsed_timer.h \
- ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_flash_ex.h \
- /home/lekhacvuong/Desktop/traffic_light/light_slave_stm/Core/User/libs/rc522/rc522.h
-../Core/Inc/board.h:
+ ../Core/Inc/board.h \
+ /home/lekhacvuong/STM32CubeIDE/workspace_1.14.0/light_slave/Core/utils/sm_logger.h \
+ /home/lekhacvuong/STM32CubeIDE/workspace_1.14.0/light_slave/Core/common/modbus/mb_slave/sm_mb_slave_impl.h \
+ /home/lekhacvuong/STM32CubeIDE/workspace_1.14.0/light_slave/Core/common/modbus/mb_slave/sm_mb_slave_if.h \
+ /home/lekhacvuong/STM32CubeIDE/workspace_1.14.0/light_slave/Core/common/modbus/sm_modbus_define.h \
+ ../Core/Inc/ligh_data.h
 ../Core/Inc/main.h:
 ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal.h:
 ../Core/Inc/stm32l1xx_hal_conf.h:
@@ -58,14 +54,11 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/board.h \
 ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_flash_ramfunc.h:
 ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_pwr.h:
 ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_pwr_ex.h:
-../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_spi.h:
-../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_tim.h:
-../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_tim_ex.h:
 ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_uart.h:
 ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_exti.h:
-/home/lekhacvuong/Desktop/traffic_light/light_slave_stm/Core/User/utils/sm_logger.h:
-/home/lekhacvuong/Desktop/traffic_light/light_slave_stm/Core/User/libs/host/sm_host.h:
-/home/lekhacvuong/Desktop/traffic_light/light_slave_stm/Core/User/libs/host/sm_cmd.h:
-/home/lekhacvuong/Desktop/traffic_light/light_slave_stm/Core/User/utils/sm_elapsed_timer.h:
-../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_flash_ex.h:
-/home/lekhacvuong/Desktop/traffic_light/light_slave_stm/Core/User/libs/rc522/rc522.h:
+../Core/Inc/board.h:
+/home/lekhacvuong/STM32CubeIDE/workspace_1.14.0/light_slave/Core/utils/sm_logger.h:
+/home/lekhacvuong/STM32CubeIDE/workspace_1.14.0/light_slave/Core/common/modbus/mb_slave/sm_mb_slave_impl.h:
+/home/lekhacvuong/STM32CubeIDE/workspace_1.14.0/light_slave/Core/common/modbus/mb_slave/sm_mb_slave_if.h:
+/home/lekhacvuong/STM32CubeIDE/workspace_1.14.0/light_slave/Core/common/modbus/sm_modbus_define.h:
+../Core/Inc/ligh_data.h:

@@ -10,9 +10,10 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include Drivers/STM32L1xx_HAL_Driver/Src/subdir.mk
--include Core/User/utils/subdir.mk
--include Core/User/libs/rc522/subdir.mk
--include Core/User/libs/host/subdir.mk
+-include Core/utils/subdir.mk
+-include Core/libs/nanoModbus/subdir.mk
+-include Core/common/modbus/mb_slave/subdir.mk
+-include Core/common/modbus/mb_master/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
 -include objects.mk
@@ -37,34 +38,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := smartHome
+BUILD_ARTIFACT_NAME := light_slave
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-smartHome.elf \
+light_slave.elf \
 
 MAP_FILES += \
-smartHome.map \
+light_slave.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-smartHome.list \
+light_slave.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: smartHome.elf secondary-outputs
+main-build: light_slave.elf secondary-outputs
 
 # Tool invocations
-smartHome.elf smartHome.map: $(OBJS) $(USER_OBJS) /home/lekhacvuong/Desktop/traffic_light/light_slave_stm/STM32L152R8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "smartHome.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"/home/lekhacvuong/Desktop/traffic_light/light_slave_stm/STM32L152R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="smartHome.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+light_slave.elf light_slave.map: $(OBJS) $(USER_OBJS) /home/lekhacvuong/STM32CubeIDE/workspace_1.14.0/light_slave/STM32L152R8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "light_slave.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"/home/lekhacvuong/STM32CubeIDE/workspace_1.14.0/light_slave/STM32L152R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="light_slave.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -73,14 +74,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-smartHome.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "smartHome.list"
+light_slave.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "light_slave.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) default.size.stdout smartHome.elf smartHome.list smartHome.map
+	-$(RM) default.size.stdout light_slave.elf light_slave.list light_slave.map
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
