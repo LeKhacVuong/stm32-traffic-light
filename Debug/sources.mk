@@ -24,9 +24,16 @@ C_DEPS :=
 SUBDIRS := \
 Core/Src \
 Core/Startup \
-Core/common/modbus/mb_master \
-Core/common/modbus/mb_slave \
-Core/libs/nanoModbus \
-Core/utils \
-Drivers/STM32L1xx_HAL_Driver/Src \
+Drivers/STM32F1xx_HAL_Driver/Src \
+Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src \
+Middlewares/ST/STM32_USB_Device_Library/Core/Src \
+USB_DEVICE/App \
+USB_DEVICE/Target \
+User/drivers/lora \
+User/libs/nanoModbus \
+User \
+User/services/modbus/mb_master \
+User/services/modbus/mb_slave \
+User/services/sv_lora \
+User/utils \
 

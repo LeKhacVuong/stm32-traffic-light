@@ -1,0 +1,9 @@
+../User/main_app.c:28:9:mb_slv_send_if	8	static
+../User/main_app.c:32:9:mb_slv_rcv_if	8	static
+../User/main_app.c:38:19:modbus_cb_write_single_register_cb	24	static
+../User/main_app.c:52:19:modbus_cb_write_multiple_registers_cb	16	static
+../User/main_app.c:80:19:modbus_cb_read_holding_registers	16	static
+../User/main_app.c:62:19:modbus_cb_read_input_registers	24	static
+../User/main_app.c:20:9:get_tick_count	8	static
+../User/main_app.c:24:6:log_put	8	static
+../User/main_app.c:97:6:main_app	8	static

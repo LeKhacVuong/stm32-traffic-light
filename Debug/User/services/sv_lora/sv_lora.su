@@ -1,0 +1,5 @@
+../User/services/sv_lora/sv_lora.c:19:12:sv_lora_get_bytes_availabe	0	static
+../User/services/sv_lora/sv_lora.c:23:5:sv_lora_send_bytes	8	static
+../User/services/sv_lora/sv_lora.c:52:5:sv_lora_init	56	static
+../User/services/sv_lora/sv_lora.c:76:6:sv_lora_polling_bytes	136	static
+../User/services/sv_lora/sv_lora.c:30:5:sv_lora_get_bytes	24	static
