@@ -1,0 +1,8 @@
+../User/utils/sm_fifo.c:12:6:sm_fifo_push_irq	16	static
+../User/utils/sm_fifo.c:27:6:sm_fifo_pop_irq	8	static
+../User/utils/sm_fifo.c:43:6:sm_fifo_init	16	static
+../User/utils/sm_fifo.c:61:6:sm_fifo_deinit	8	static
+../User/utils/sm_fifo.c:71:6:sm_fifo_push	16	static
+../User/utils/sm_fifo.c:88:6:sm_fifo_pop	8	static
+../User/utils/sm_fifo.c:103:14:sm_fifo_get_num_item	0	static
+../User/utils/sm_fifo.c:107:6:sm_fifo_peek	0	static

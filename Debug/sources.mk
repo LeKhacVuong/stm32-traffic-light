@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (11.3.rel1)
+# Toolchain: GNU Tools for STM32 (12.3.rel1)
 ################################################################################
 
 ELF_SRCS := 
@@ -29,11 +29,21 @@ Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src \
 Middlewares/ST/STM32_USB_Device_Library/Core/Src \
 USB_DEVICE/App \
 USB_DEVICE/Target \
+User/common/http_client \
+User/common/mqtt_client \
+User/drivers/at-modem \
+User/drivers/gps \
 User/drivers/lora \
+User/drivers/lte \
+User/drivers/lte/testing \
+User/hals/src \
+User/libs/json-maker \
 User/libs/nanoModbus \
+User/libs/tiny-json \
 User \
 User/services/modbus/mb_master \
 User/services/modbus/mb_slave \
+User/services/sv_gps \
 User/services/sv_lora \
 User/utils \
 

@@ -20,7 +20,6 @@ typedef struct {
     sys_datetime_t  m_datetime;
     char            *buff;
     uint8_t         data_is_valid;
-    elapsed_timer_t m_timeout;
 }sm_l76x_t;
 
 sm_l76x_t* sm_l76x_init(sm_hal_uart_t *_if, sm_hal_io_t *_rst);

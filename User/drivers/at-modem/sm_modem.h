@@ -31,7 +31,10 @@ struct sm_modem{
  * @param io
  * @param driver
  */
-void sm_modem_init(sm_modem_t *modem, sm_hal_io_t *io, sm_hal_uart_t *driver);
+void sm_modem_init(sm_modem_t *modem,
+					sm_hal_io_t *io,
+					sm_hal_uart_t *driver
+					uint16_t buffer_size);
 
 /**
  * @brief

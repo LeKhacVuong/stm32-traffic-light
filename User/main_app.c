@@ -95,7 +95,7 @@ static const sm_mb_slave_cb_t g_mb_slave_callback = {
 };
 
 void main_app(){
-
+	sm_logger_init(_fn, _level)
 	sv_lora_init();
 
     g_mb_slave = sm_mb_slave_create_default(1, mb_slv_send_if, mb_slv_rcv_if, NULL);
@@ -113,4 +113,8 @@ void main_app(){
 		sv_lora_polling_bytes();
 
 	}
+}
+
+void log_print(char* str){
+	CDC_Transmit_FS((uint8_t*) str, strlen(str));
 }

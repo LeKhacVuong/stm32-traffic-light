@@ -1,6 +1,6 @@
 User/services/sv_lora/sv_lora.o: ../User/services/sv_lora/sv_lora.c \
  ../User/services/sv_lora/sv_lora.h \
- /home/lekhacvuong/STM32CubeIDE/workspace_1.14.0/traffic_light/User/drivers/lora/LoRa.h \
+ D:/Personal_projects/stm32-traffic-light/User/drivers/lora/LoRa.h \
  ../Core/Inc/main.h ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  ../Core/Inc/stm32f1xx_hal_conf.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h \
@@ -33,9 +33,9 @@ User/services/sv_lora/sv_lora.o: ../User/services/sv_lora/sv_lora.c \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h \
- /home/lekhacvuong/STM32CubeIDE/workspace_1.14.0/traffic_light/User/utils/sm_elapsed_timer.h
+ D:/Personal_projects/stm32-traffic-light/User/utils/sm_elapsed_timer.h
 ../User/services/sv_lora/sv_lora.h:
-/home/lekhacvuong/STM32CubeIDE/workspace_1.14.0/traffic_light/User/drivers/lora/LoRa.h:
+D:/Personal_projects/stm32-traffic-light/User/drivers/lora/LoRa.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
 ../Core/Inc/stm32f1xx_hal_conf.h:
@@ -69,4 +69,4 @@ User/services/sv_lora/sv_lora.o: ../User/services/sv_lora/sv_lora.c \
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h:
-/home/lekhacvuong/STM32CubeIDE/workspace_1.14.0/traffic_light/User/utils/sm_elapsed_timer.h:
+D:/Personal_projects/stm32-traffic-light/User/utils/sm_elapsed_timer.h:

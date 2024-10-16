@@ -16,17 +16,14 @@ static const char* TAG = "MODEM";
 
 char buff_modem[MODEM_BUFF_SIZE] = {0};
 
-void sm_modem_init(sm_modem_t *modem,sm_hal_io_t *io, sm_hal_uart_t *driver){
+void sm_modem_init(sm_modem_t *modem,
+					sm_hal_io_t *io,
+					sm_hal_uart_t *driver,
+					uint16_t buffer_size){
     modem->reset_pin = io;
     modem->driver = driver;
     if(modem->buff_length == 0 && modem->buff == NULL){
-        modem->buff_length = MODEM_BUFF_SIZE;
-//        modem->buff = calloc(modem->buff_length,sizeof(char));
-        modem->buff = buff_modem;
-    }
-    else if(modem->buff_length != 0 && modem->buff == NULL){
-//        modem->buff = calloc(modem->buff_length,sizeof(char));
-    	modem->buff = buff_modem;
+    	modem->buff = malloc(buffer_size);
     }
     modem->lock = 0;
 }
