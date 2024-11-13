@@ -45,7 +45,11 @@ typedef void (*sm_hal_uart_tx_irq_fn_t)(sm_hal_uart_t*, void*);
  * @param handle
  * @return
  */
-sm_hal_uart_t* sm_hal_uart_init(const void* _channel, uint32_t _baud, uint8_t _stop_bit, uint8_t _data_bit);
+sm_hal_uart_t* sm_hal_uart_init(const void* _channel,
+								uint32_t _baud,
+								uint8_t _stop_bit,
+								uint8_t _data_bit,
+								uint32_t buffer_size);
 
 /**
  * @fn void sm_hal_uart_deinit(sm_hal_uart_t*)

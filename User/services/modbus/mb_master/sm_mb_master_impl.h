@@ -10,8 +10,8 @@ extern "C"{
 #endif
 
 #include "stdint.h"
-#include "nanomodbus.h"
-#include "sm_modbus_define.h"
+#include "../../../libs/nanoModbus/nanomodbus.h"
+#include "../sm_modbus_define.h"
 
 typedef void sm_mb_master_t;
 

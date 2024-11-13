@@ -12,7 +12,7 @@
 #include "sm_hal_uart.h"
 #include "sm_hal_io.h"
 
-#define MODEM_BUFF_SIZE 4096
+#define MODEM_BUFF_SIZE 1025
 
 typedef struct sm_modem sm_modem_t;
 
@@ -22,7 +22,7 @@ struct sm_modem{
     sm_hal_uart_t *driver;
     char* buff;
     uint32_t buff_length;
-	   volatile bool lock;
+	volatile bool lock;
 };
 
 /**
@@ -33,7 +33,7 @@ struct sm_modem{
  */
 void sm_modem_init(sm_modem_t *modem,
 					sm_hal_io_t *io,
-					sm_hal_uart_t *driver
+					sm_hal_uart_t *driver,
 					uint16_t buffer_size);
 
 /**

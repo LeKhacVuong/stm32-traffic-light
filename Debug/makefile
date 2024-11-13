@@ -11,20 +11,20 @@ RM := rm -rf
 -include sources.mk
 -include User/utils/subdir.mk
 -include User/services/sv_lora/subdir.mk
--include User/services/sv_gps/subdir.mk
+-include User/services/sv_iot/subdir.mk
 -include User/services/modbus/mb_slave/subdir.mk
 -include User/services/modbus/mb_master/subdir.mk
 -include User/libs/tiny-json/subdir.mk
 -include User/libs/nanoModbus/subdir.mk
 -include User/libs/json-maker/subdir.mk
 -include User/hals/src/subdir.mk
--include User/drivers/lte/testing/subdir.mk
--include User/drivers/lte/subdir.mk
+-include User/drivers/wifi/subdir.mk
+-include User/drivers/lte/src/subdir.mk
 -include User/drivers/lora/subdir.mk
 -include User/drivers/gps/subdir.mk
 -include User/drivers/at-modem/subdir.mk
+-include User/common/tcp_server/subdir.mk
 -include User/common/mqtt_client/subdir.mk
--include User/common/http_client/subdir.mk
 -include User/subdir.mk
 -include USB_DEVICE/Target/subdir.mk
 -include USB_DEVICE/App/subdir.mk
@@ -73,6 +73,12 @@ default.size.stdout \
 OBJDUMP_LIST += \
 traffic_light.list \
 
+OBJCOPY_HEX += \
+traffic_light.hex \
+
+OBJCOPY_BIN += \
+traffic_light.bin \
+
 
 # All Target
 all: main-build
@@ -82,7 +88,7 @@ main-build: traffic_light.elf secondary-outputs
 
 # Tool invocations
 traffic_light.elf traffic_light.map: $(OBJS) $(USER_OBJS) D:\Personal_projects\stm32-traffic-light\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "traffic_light.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\Personal_projects\stm32-traffic-light\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="traffic_light.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+	arm-none-eabi-gcc -o "traffic_light.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\Personal_projects\stm32-traffic-light\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="traffic_light.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -96,12 +102,22 @@ traffic_light.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+traffic_light.hex: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "traffic_light.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+traffic_light.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "traffic_light.bin"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
-	-$(RM) default.size.stdout traffic_light.elf traffic_light.list traffic_light.map
+	-$(RM) default.size.stdout traffic_light.bin traffic_light.elf traffic_light.hex traffic_light.list traffic_light.map
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX) $(OBJCOPY_BIN)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'

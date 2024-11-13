@@ -17,7 +17,7 @@ typedef struct {
     void                    *m_tx_arg;
 } uart_irq_t;
 typedef struct {
-    uart_instance_t *m_channel;
+	UART_HandleTypeDef *m_channel;
     uint32_t m_baud;
     uint8_t m_stop_bit;
     uint8_t m_data_bit;
@@ -34,7 +34,11 @@ typedef struct {
 
 sm_fifo_handle_t btest;
 
-sm_hal_uart_t* sm_hal_uart_init(const void* _channel, uint32_t _baud, uint8_t _stop_bit, uint8_t _data_bit){
+sm_hal_uart_t* sm_hal_uart_init(const void* _channel,
+								uint32_t _baud,
+								uint8_t _stop_bit,
+								uint8_t _data_bit,
+								uint32_t buffer_size){
     if (!_channel){
         return NULL;
     }
@@ -44,7 +48,7 @@ sm_hal_uart_t* sm_hal_uart_init(const void* _channel, uint32_t _baud, uint8_t _s
     uart->m_baud = _baud;
     uart->m_data_bit = _data_bit;
     uart->m_stop_bit = _stop_bit;
-    sm_fifo_init(&uart->m_rx_buff, UART_RX_BUFFER, sizeof(uint8_t));
+    sm_fifo_init(&uart->m_rx_buff, buffer_size, sizeof(uint8_t));
 #ifdef MULTI_CALLBACK
 #else
     uart->m_irq.m_tx_cb = NULL;
@@ -69,10 +73,10 @@ int32_t sm_hal_uart_config(sm_hal_uart_t *_this, uint32_t _baud, uint8_t _stop_b
     if (!_this){
         return -1;
     }
+    int32_t err = 0;
     impl(_this)->m_baud = _baud;
     impl(_this)->m_data_bit = _data_bit;
     impl(_this)->m_stop_bit = _stop_bit;
-    int32_t err = R_SCI_UART_BaudSet(impl(_this)->m_channel->p_ctrl, impl(_this)->m_baud);
     return err ? -1 : 0;
 }
 
@@ -81,7 +85,7 @@ int32_t sm_hal_uart_write(sm_hal_uart_t *_this, uint8_t *_buff, uint32_t _len){
     if (!_this){
         return -1;
     }
-    int32_t err = R_SCI_UART_Write(impl(_this)->m_channel->p_ctrl, _buff, _len);
+    int32_t err = 0;
     return err ? -1 : 0;
 }
 
@@ -128,7 +132,7 @@ int32_t sm_hal_uart_open(sm_hal_uart_t *_this){
     if (!_this){
         return -1;
     }
-    int32_t err = R_SCI_UART_Open(impl(_this)->m_channel->p_ctrl, impl(_this)->m_channel->p_cfg);
+    int32_t err = 0;
     return err ? -1 : 0;
 }
 
@@ -137,7 +141,7 @@ int32_t sm_hal_uart_close(sm_hal_uart_t *_this){
     if (!_this){
         return -1;
     }
-    int32_t err = R_SCI_UART_Close(impl(_this)->m_channel->p_ctrl);
+    int32_t err = 0;
     return err ? -1 : 0;
 }
 

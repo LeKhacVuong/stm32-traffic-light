@@ -12,7 +12,7 @@ extern "C" {
 #include <stdint.h>
 #include <stdbool.h>
 
-#include "sm_modbus_define.h"
+#include "../sm_modbus_define.h"
 
 typedef struct sm_mb_slave sm_mb_slave_t;
 

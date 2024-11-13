@@ -2,13 +2,12 @@
 // Created by Ng Huy Hai on 9/5/2024.
 //
 #include "sm_mqtt_client.h"
-#include "sm_ec200_mqtt.h"
 #include "sm_fifo.h"
 #include "sm_logger.h"
-
+#include "sm_ec200_mqtt.h"
 #include "sm_hal_delay.h"
 
-#define SM_MQTT_CLIENT_EVENT_CB_MAX     8
+#define SM_MQTT_CLIENT_EVENT_CB_MAX     1
 #define SM_MQTT_RETRY_CONFIG_MAX        5
 
 #define SM_MQTT_TOPIC_SIZE              128
@@ -26,19 +25,22 @@ enum {
 typedef struct {
     sm_ec200_t*         m_if;
 
-    char m_topic_buffer[SM_MQTT_TOPIC_SIZE];
-    char m_payload_buffer[SM_MQTT_PAYLOAD_SIZE];
+    char  				*m_topic_buffer;
+    char 				*m_payload_buffer;
 
     uint8_t             m_event_cb_num;
     struct event_cb {
         void        (*on_message)(sm_mqtt_client_t*, sm_mqtt_msg_t*, void*);
         void*       m_arg;
     }m_event_cbs[SM_MQTT_CLIENT_EVENT_CB_MAX];
+
 }sm_mqtt_client_impl_t;
 
 static sm_mqtt_client_impl_t g_mqtt_client = {
     .m_if = NULL,
     .m_event_cb_num = 0,
+	.m_topic_buffer = NULL,
+	.m_payload_buffer = NULL,
 };
 
 sm_mqtt_client_t* sm_mqtt_init(void* _net_if) {
@@ -47,8 +49,8 @@ sm_mqtt_client_t* sm_mqtt_init(void* _net_if) {
     }
 
     g_mqtt_client.m_if = _net_if;
-    memset(g_mqtt_client.m_topic_buffer, '\0',SM_MQTT_TOPIC_SIZE);
-    memset(g_mqtt_client.m_payload_buffer, '\0', SM_MQTT_PAYLOAD_SIZE);
+//    memset(g_mqtt_client.m_topic_buffer, '\0',SM_MQTT_TOPIC_SIZE);
+//    memset(g_mqtt_client.m_payload_buffer, '\0', SM_MQTT_PAYLOAD_SIZE);
 
     for(int index = 0; index < SM_MQTT_CLIENT_EVENT_CB_MAX; index++){
         g_mqtt_client.m_event_cbs[index].on_message = NULL;

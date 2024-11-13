@@ -1,0 +1,7 @@
+
+#ifndef USER_APPS_LIGHT_MAINAPP_H_
+#define USER_APPS_LIGHT_MAINAPP_H_
+
+
+
+#endif /* USER_APPS_LIGHT_MAINAPP_H_ */

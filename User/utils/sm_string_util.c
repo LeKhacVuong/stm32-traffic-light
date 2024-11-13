@@ -146,12 +146,12 @@ int32_t shortest_substring(const char *str, const char *start_sub, const char *e
 
     int32_t len = end + strlen(end_sub) - start;
 
-    if (len >= max_len) {
+    if (len > max_len) {
         return -99;
     }
 
-    strncpy(result, start, len);
-    result[len] = '\0';
+    memcpy(result, start, len);
+//    result[len] = '\0';
     return len;
 }
 

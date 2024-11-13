@@ -1,0 +1,8 @@
+
+
+#ifndef USER_APPS_LIGHT_MASTER_H_
+#define USER_APPS_LIGHT_MASTER_H_
+
+
+
+#endif /* USER_APPS_LIGHT_MASTER_H_ */

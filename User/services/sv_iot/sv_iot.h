@@ -8,11 +8,19 @@
 #ifndef SERVICES_SV_IOT_SV_IOT_H_
 #define SERVICES_SV_IOT_SV_IOT_H_
 
+#include "sm_mqtt_client.h"
+#include "sm_elapsed_timer.h"
+#include "sv_iot_mqtt_topic.h"
+#include "sv_iot_config.h"
+
+#define IOT_SUB_TOPIC_NUMBER 	4
+#define IOT_PUB_QUEUE_SIZE		4
+#define IOT_PAYLOAD_SIZE		1024
 /// EVENT
 typedef enum {
-	EVENT_CONNECTED,
-	EVENT_DISCONNECTED,
-	EVENT_COMMAND,
+	IOT_EVENT_CONNECTED,
+	IOT_EVENT_DISCONNECTED,
+	IOT_EVENT_COMMAND,
 }SV_IOT_EVENT;
 
 typedef enum {
@@ -23,19 +31,62 @@ typedef enum {
 
 /// EVENT CALLBACK
 typedef struct {
-	void (*on_conn)(void *arg);
-	void (*on_disc)(void *arg);
-	void (*on_cmd)(void *argv, void *arg);
+	void 	(*on_conn)(void *arg);
+	void 	(*on_disc)(void *arg);
+	void 	(*on_cmd)(uint8_t cmd, void *data, void *arg);
+	void 	(*on_sync)(char *data_handle,void *arg);
 }sv_iot_callback_t;
 
 /// STATE
 typedef enum {
-	STATE_IDLE,
-	STATE_CONNECTING,
-	STATE_CONNECTED,
-	STATE_DISCONNECTED,
+	IOT_STATE_IDLE,
+	IOT_STATE_OPEN,
+	IOT_STATE_CONNECT,
+	IOT_STATE_SUBSCRIBE,
+	IOT_STATE_RUNNING,
+	IOT_STATE_DISCONNECT,
 }SV_IOT_STATE;
 
+typedef struct {
+    sm_mqtt_client_t* 	mqtt_client;
+    char				*device_name;
+    SV_IOT_STATE 			state;
+    struct {
+        const char* 	topic;
+        void 			(*topic_handle)(sm_mqtt_msg_t*, void*);
+    }sub_topics[IOT_SUB_TOPIC_NUMBER];
+    uint8_t sub_topic_num;
 
+    struct{
+        char 			*topic;
+        char 			*payload;
+    }pub_topics[IOT_PUB_QUEUE_SIZE];
+    uint8_t 			pub_head;
+    uint8_t 			pub_tail;
+
+	elapsed_timer_t 	timeout;
+	sv_iot_callback_t 	*event_cb;
+	void 			  	*event_arg;
+
+	uint8_t 			retry;
+}sv_iot_t;
+
+sv_iot_t* sv_iot_create(sm_mqtt_client_t	*client,
+						sv_iot_callback_t 	*event_cb,
+						void				*event_arg);
+
+int32_t sv_iot_get_state(sv_iot_t* this);
+int32_t sv_iot_push_data_to_cloud(sv_iot_t* this, char* topic, char* payload);
+int32_t sv_iot_process(sv_iot_t* this);
 
 #endif /* SERVICES_SV_IOT_SV_IOT_H_ */
+
+
+
+
+
+
+
+
+
+

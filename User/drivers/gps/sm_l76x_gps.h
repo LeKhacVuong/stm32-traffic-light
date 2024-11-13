@@ -14,12 +14,14 @@
 
 #define GPS_BUFFER_LENGTH 512
 typedef struct {
-    sm_modem_t      m_base;
+    sm_hal_io_t *m_rst_pin;
+    sm_hal_uart_t *m_driver;
     float           m_lat;
     float           m_lon;
     sys_datetime_t  m_datetime;
     char            *buff;
     uint8_t         data_is_valid;
+    uint8_t 		m_time_valid
 }sm_l76x_t;
 
 sm_l76x_t* sm_l76x_init(sm_hal_uart_t *_if, sm_hal_io_t *_rst);

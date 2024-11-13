@@ -1,7 +1,7 @@
 //
 // Created by vnbk on 24/03/2023.
 //
-#include "../utils/sm_logger.h"
+#include "sm_logger.h"
 
 #include <stdio.h>
 #include <stdarg.h>

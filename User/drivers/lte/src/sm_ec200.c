@@ -1,5 +1,5 @@
 #include "sm_ec200.h"
-#include <sm_logger.h>
+#include "sm_logger.h"
 #include "sm_hal_delay.h"
 #include <string.h>
 #include <stdio.h>
@@ -7,7 +7,7 @@
 static const char* TAG = "SM_EC200";
 #define RESET_MODEM_TIME    15*1000
 void sm_ec200_init(sm_ec200_t *modem, sm_hal_io_t *reset_pin, sm_hal_uart_t *driver) {
-    sm_modem_init((sm_modem_t*) modem, reset_pin, driver);
+    sm_modem_init((sm_modem_t*) modem, reset_pin, driver, 1024);
     EC200_INIT: sm_modem_hw_reset((sm_modem_t*) modem, 400, 0);
 	LOG_DBG(TAG, "Reset modem");
     sm_hal_delay_ms(RESET_MODEM_TIME);

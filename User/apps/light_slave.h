@@ -1,0 +1,6 @@
+#ifndef USER_APPS_LIGHT_SLAVE_H_
+#define USER_APPS_LIGHT_SLAVE_H_
+
+
+
+#endif /* USER_APPS_LIGHT_SLAVE_H_ */

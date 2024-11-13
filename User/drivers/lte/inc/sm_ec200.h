@@ -2,7 +2,7 @@
 #define SM_EC200N_H
 
 #include "time.h"
-#include "modules/at-modem/sm_modem.h"
+#include "sm_modem.h"
 #include <stdbool.h>
 
 typedef struct sm_ec200 sm_ec200_t;

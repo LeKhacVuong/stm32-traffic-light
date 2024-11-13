@@ -1,4 +1,4 @@
-../User/services/modbus/mb_slave/sm_mb_slave_impl.c:65:9:sm_mb_slave_free	2
+../User/services/modbus/mb_slave/sm_mb_slave_impl.c:65:9:sm_mb_slave_free	1
 ../User/services/modbus/mb_slave/sm_mb_slave_impl.c:72:9:sm_mb_slave_set_addr	2
 ../User/services/modbus/mb_slave/sm_mb_slave_impl.c:80:9:sm_mb_slave_reg_function_cb	2
 ../User/services/modbus/mb_slave/sm_mb_slave_impl.c:134:9:nmbs_read_fn	2

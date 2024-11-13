@@ -32,9 +32,9 @@ sm_mqtt_client_t *sm_mqtt_init(void *_net_if);
  * @param _arg
  * @return
  */
-int32_t
-sm_mqtt_set_incoming_data_cb(sm_mqtt_client_t *_this, void (*on_message)(sm_mqtt_client_t *, sm_mqtt_msg_t *, void *),
-                             void *_arg);
+int32_t sm_mqtt_set_incoming_data_cb(sm_mqtt_client_t *_this,
+									void (*on_message)(sm_mqtt_client_t *, sm_mqtt_msg_t *, void *),
+									void *_arg);
 
 /**
  * @brief

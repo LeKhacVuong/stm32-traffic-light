@@ -1,0 +1,8 @@
+
+
+#ifndef USER_APPS_LIGHT_APP_CONFIG_H_
+#define USER_APPS_LIGHT_APP_CONFIG_H_
+
+
+
+#endif /* USER_APPS_LIGHT_APP_CONFIG_H_ */

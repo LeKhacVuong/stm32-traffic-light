@@ -137,21 +137,20 @@ int32_t sm_ec200_unsubscribes_mqtt(sm_ec200_t *modem, const char *topic) {
 
 int32_t sm_ec200_receive_mqtt_data(sm_ec200_t* modem){
 	sm_modem_t* p_modem = (sm_modem_t*) modem;
-	char buff[2048] = {0};
-	memset(buff, 0, 2048);
+	char buff[1024] = {0};
+	memset(buff, 0, 1024);
 	sprintf(buff, "AT+QMTRECV?\r\n");
-	if (sm_modem_send_cmd(p_modem, buff, "OK\r\n","OK\r\n", 2000)) {
-		// LOG_DBG("EC200_MQTT", "+QMTRECV? no response");
-		return -1;
-	}
-
+	sm_hal_uart_write(p_modem->driver,(uint8_t*)buff,strlen(buff));
     memset(buff, 0, 1024);
+	sm_modem_read_until_str(p_modem->driver, buff, "OK\r\n", 2000);
 
-	if (shortest_substring(p_modem->buff, "+QMTRECV:","\r\n", buff, 2048) <= 0) {
+	char read_buff[1024];
+	 memset(read_buff, 0, 1024);
+	if (shortest_substring(buff, "+QMTRECV:","\r\n", read_buff, 1024) <= 0) {
 		return -1;
 	}else {
 		int buff_index[5] = {0,0,0,0,0};
-		int numscan = sscanf(buff,
+		int numscan = sscanf(read_buff,
                              "+QMTRECV: 1,%d,%d,%d,%d,%d\r\n",
                              &buff_index[0],
                              &buff_index[1],
@@ -207,11 +206,11 @@ int32_t sm_ec200_data_incoming_mqtt(sm_ec200_t *modem, char *topic, char *data) 
 
 URC_MSG sm_ec200_read_urc_mqtt(sm_ec200_t *modem) {
 	sm_modem_t* p_modem = (sm_modem_t*) modem;
-	char buff[512], urc[16];
-	memset(buff, '\0', 512);
+	char buff[256], urc[16];
+	memset(buff, '\0', 256);
 	memset(urc, '\0', 16);
 	int32_t len = -1;
-	len = sm_modem_read(p_modem, buff, 512);
+	len = sm_modem_read(p_modem, buff, 256);
 	if (len > 0) {
 		LOG_DBG("EC200_MQTT", "Modem read : %s - len: %d",buff, len);
 		if (strstr(buff, "+QMTSTAT: 1,1") != NULL) {

@@ -6,7 +6,7 @@
 
 #include <stdlib.h>
 
-#include "nanomodbus.h"
+#include "../../../libs/nanoModbus/nanomodbus.h"
 
 #define TAG "sm_mb_impl"
 
